@@ -1,0 +1,46 @@
+#########################
+# GENERAL (Para todo el proyecto)
+#########################
+# Dependencias de Node (¡NUNCA subir esto, pesa demasiado!)
+node_modules/
+**/node_modules/
+
+# Archivos de sistema y logs
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Configuración de editores (opcional, pero recomendado)
+.vscode/
+.idea/
+
+#########################
+# BACKEND (Node.js + Oracle)
+#########################
+# Variables de entorno con contraseñas (¡CRITICO!)
+.env
+BACK/.env
+
+# Si usas Wallet de Oracle, ignórala también
+*/Wallet_*
+
+#########################
+# FRONTEND (Angular)
+#########################
+# Carpeta de caché de Angular
+.angular/
+FRONT/.angular/
+
+# Compilados de TypeScript (lo que vimos antes)
+out-tsc/
+FRONT/out-tsc/
+
+# Carpeta de producción (lo que se genera al hacer build)
+dist/
+FRONT/dist/
+
+# Archivos temporales de test
+coverage/

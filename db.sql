@@ -21,36 +21,36 @@ INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAG
 VALUES ('Draco Malfoy', 'vivo', 'pura', 
         'Magia oscura básica, maldición Imperius', 
         'Participación forzada en complots de Voldemort', 
-        'draco.jpg');
+        'img/draco.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
 VALUES ('Lucius Malfoy', 'vivo', 'pura', 
         'Influencia política, artefactos tenebrosos', 
         'Mortífago declarado, sobornos y chantajes', 
-        'lucius.jpg');
+        'img/lucius.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
 VALUES ('Antonin Dolohov', 'vivo', 'pura', 
         'Duelos, maldiciones letales', 
         'Condenado por asesinato y tortura de magos y muggles', 
-        'dolohov.jpg');
+        'img/dolohov.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
 VALUES ('Fenrir Greyback', 'vivo', 'desconocido', 
         'Licántropo, ataques cuerpo a cuerpo', 
         'Ataques a niños y muggles, colaborador de Voldemort', 
-        'fenrir_greyback.jpg');
+        'img/fenrir_greyback.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
 VALUES ('Barty Crouch Jr.', 'muerto', 'desconocido', 
         'Maldiciones imperdonables, suplantación con multijugos', 
         'Evasión de Azkaban, secuestro de Ojo-Loco Moody', 
-        'barty_jr.jpg');
+        'img/barty_jr.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
 VALUES ('Severus Snape', 'muerto', 'mestiza', 
         'Pociones, oclumancia y legeremancia', 
         'Doble agente entre la Orden del Fénix y Voldemort', 
-        'snape.jpg');
+        'img/snape.jpg');
 
 
