@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+/* Intente importar la fuente manualmente pero no me funciono e implementé esto */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+
+  --fixed-bg: #0a0a0b;
+  --fixed-border: #ffffff;
+  --fixed-text: #d4af37;
+
+  /* MODO CLARO */
+  --bg-body: #f3e5ab;         
+  --text-main: #1a1a1d;       
+  
+  --card-bg: #ffffff;         
+  --card-text: #000000;       
+  --card-border: #8b4513;  
+  --card-subtext: #444;   
+
+  --input-bg: #fff;
+  --input-border: #8b4513;
+  --input-text: #000;
+}
+
+[data-theme="dark"] {
+  /*  MODO OSCURO  */
+  --bg-body: #101010;         
+  --text-main: #ffffff;       
+
+  --card-bg: #1c1c1c;         
+  --card-text: #ffffff;       
+  --card-border: #d4af37;    
+  --card-subtext: #ccc;     
+
+  --input-bg: #2a2a30;
+  --input-border: #555;
+  --input-text: #fff;
+}
+
+body {
+  background-color: var(--bg-body) !important;
+  color: var(--text-main);
+  font-family: 'Lato', sans-serif;
+  transition: background-color 0.3s ease;
+  margin: 0;
+}
+
+.title-elegant {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  letter-spacing: clamp(2px, 1vw, 6px); 
+  color: #ffffff !important; 
+  text-shadow: 
+    0 2px 0 #000,
+    0 0 20px rgba(0,0,0,0.8),
+    0 0 30px rgba(0,0,0,0.5);
+  
+  display: inline-block;
+  position: relative;
+  padding-bottom: 15px;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.title-elegant::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 2px;
+  background: #d4af37;
+  margin: 10px auto 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.font-magic { font-family: 'Cinzel', serif; }

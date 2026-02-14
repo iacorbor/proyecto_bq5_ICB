@@ -1,1 +1,147 @@
-<p>buscador works!</p>
+<div class="container py-5 text-center">
+  
+  <h1 class="title-elegant">Registro de Mortífagos</h1>
+
+  <div class="row g-4 mb-5 justify-content-center">
+    <div class="col-md-5">
+      <div class="filter-box text-center">
+        <label class="filter-label">🔍 Búsqueda Por Nombre</label>
+        <div class="input-group">
+          <input type="text" class="form-control custom-input" 
+                 placeholder="Nombre del mago..." 
+                 [(ngModel)]="busquedaTexto" 
+                 (keyup.enter)="buscarNombre()">
+          <button class="btn btn-danger" (click)="buscarNombre()">BUSCAR</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="filter-box text-center">
+        <label class="filter-label">🧬 Estado Actual</label>
+        <div class="d-flex gap-2">
+          <select class="form-select custom-select" [(ngModel)]="filtroEstado" (change)="filtrarEstado()">
+            <option value="" disabled selected>Selecciona estado...</option>
+            <option value="vivo">Vivo</option>
+            <option value="muerto">Muerto</option>
+            <option value="desconocido">Desconocido</option>
+          </select>
+          <button class="btn btn-secondary" (click)="resetear()">TODOS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center py-5" *ngIf="cargando">
+    <div class="spinner-border text-warning" role="status"></div>
+    <p class="mt-2 text-white text-shadow">Consultando archivos...</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center" *ngIf="!cargando">
+    <div class="col" *ngFor="let m of mortifagos">
+      <div class="card-azkaban">
+        
+        <div class="card-img-wrapper">
+          <img [src]="'http://localhost:3000/' + m.imagen" 
+               (error)="imgError($event)" 
+               class="card-img-top" 
+               [alt]="m.nombre">
+        </div>
+        
+        <div class="card-body">
+          <h5 class="card-name">{{ m.nombre }}</h5>
+          
+          <div *ngIf="filtroEstado && m.estado" class="mb-3 fade-in">
+            <span class="badge badge-status" 
+                  [ngClass]="{
+                    'bg-success': m.estado === 'vivo' || m.estado === 'Vivo',
+                    'bg-danger': m.estado === 'muerto' || m.estado === 'Muerto',
+                    'bg-secondary': m.estado === 'desconocido' || m.estado === 'Desconocido'
+                  }">
+              {{ m.estado | uppercase }}
+            </span>
+          </div>
+          
+          <button class="btn btn-expediente" 
+                  data-bs-toggle="modal" data-bs-target="#detalleModal"
+                  (click)="abrirModal(m)">
+            Ver Expediente
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="mortifagos.length === 0" class="col-12 text-center">
+      <div class="alert alert-warning d-inline-block">
+        No hay registros que coincidan con la búsqueda.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="detalleModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content azkaban-modal-content">
+      
+      <div class="modal-header border-0">
+        <h5 class="modal-title font-magic text-gold">EXPEDIENTE CONFIDENCIAL</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body" *ngIf="mortifagoSeleccionado">
+        <div class="row">
+          <div class="col-md-5 mb-3 mb-md-0 d-flex flex-column align-items-center">
+            <div class="mugshot-wrapper">
+              <img [src]="'http://localhost:3000/' + mortifagoSeleccionado.imagen" 
+                   (error)="imgError($event)" 
+                   class="mugshot-img" 
+                   alt="Foto">
+              <div class="mugshot-label">🐍MORTÍFAGO💀</div>
+            </div>
+          </div>
+
+          <div class="col-md-7 text-start ps-md-4">
+            <h2 class="font-magic text-white mb-3" style="border-bottom: 1px solid #555; padding-bottom: 10px;">
+              {{ mortifagoSeleccionado.nombre }}
+            </h2>
+            
+            <div class="info-row">
+              <strong class="text-gold label-width">⚡ Estado:</strong>
+              <span class="badge" 
+                [ngClass]="{
+                  'bg-success': mortifagoSeleccionado.estado === 'vivo' || mortifagoSeleccionado.estado === 'Vivo',
+                  'bg-danger': mortifagoSeleccionado.estado === 'muerto' || mortifagoSeleccionado.estado === 'Muerto',
+                  'bg-secondary': mortifagoSeleccionado.estado === 'desconocido' || mortifagoSeleccionado.estado === 'Desconocido'
+                }">
+                {{ (mortifagoSeleccionado.estado || 'Desconocido') | uppercase }}
+              </span>
+            </div>
+
+            <div class="info-row">
+              <strong class="text-gold label-width">🧬 Sangre:</strong>
+              <span class="text-light">{{ mortifagoSeleccionado.sangre || 'Desconocida' }}</span>
+            </div>
+
+            <div class="info-row">
+              <strong class="text-gold label-width">✨ Especialidad:</strong>
+              <span class="text-light">{{ mortifagoSeleccionado.especialidad || 'Sin registrar' }}</span>
+            </div>
+
+            <div class="mt-4">
+              <strong class="text-gold d-block mb-2">📜 Antecedentes:</strong>
+              <div class="p-3 rounded border border-secondary" style="background-color: rgba(0,0,0,0.5);">
+                <p class="text-light fst-italic mb-0">
+                  "{{ mortifagoSeleccionado.antecedentes || 'Sin antecedentes.' }}"
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

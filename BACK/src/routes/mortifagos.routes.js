@@ -10,10 +10,10 @@ router.get("/", async (req, res) => {
       SELECT
         ID          AS "id",
         NOMBRE      AS "nombre",
-        ESTADO   AS "categoria",
-        SANGRE AS "descripcion",
-        ESPECIALIDAD      AS "precio",
-        ANTECEDENTES      AS "stock",
+        ESTADO   AS "estado",
+        SANGRE AS "sangre",
+        ESPECIALIDAD      AS "especialidad",
+        ANTECEDENTES      AS "antecedentes",
         IMAGEN AS "imagen"
       FROM MORTIFAGOS
       ORDER BY NOMBRE, ESTADO
@@ -58,6 +58,33 @@ router.get("/sangre", async (req, res) => {
     });
 
   } finally {
+    if (conn) await conn.close();
+  }
+});
+
+router.get("/buscar/:termino", async (req, res) => {
+  let conn;
+  try {
+    conn = await getConnection();
+    const termino = `%${req.params.termino.toLowerCase()}%`; // Los % permiten buscar "atrix" y encontrar "Bellatrix"
+    const result = await conn.execute(`
+      SELECT ID as "id", NOMBRE as "nombre",
+      ESTADO as "estado", SANGRE as "sangre", 
+      ESPECIALIDAD as "especialidad",
+      ANTECEDENTES as "antecedentes",
+      IMAGEN as "imagen"
+      FROM MORTIFAGOS 
+      WHERE LOWER(NOMBRE) LIKE :termino
+    `, { termino });
+    res.json(result.rows);
+  } catch (e) {
+    res.status(500).json({
+      error: "Error obteniendo nombre",
+      details: e.message
+    });
+
+  } finally {
+
     if (conn) await conn.close();
   }
 });

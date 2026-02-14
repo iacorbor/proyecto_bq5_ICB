@@ -15,42 +15,87 @@ INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAG
 VALUES ('Bellatrix Lestrange', 'vivo', 'pura', 
         'Magia oscura, tortura con Cruciatus', 
         'Condenada en Azkaban por torturar a los Longbottom', 
-        'bellatrix.jpg');
+        'img/bellatrix.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
-VALUES ('Draco Malfoy', 'vivo', 'pura', 
+VALUES ('Draco Malfoy', 'Vivo', 'Pura', 
         'Magia oscura básica, maldición Imperius', 
         'Participación forzada en complots de Voldemort', 
         'img/draco.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
-VALUES ('Lucius Malfoy', 'vivo', 'pura', 
+VALUES ('Lucius Malfoy', 'Vivo', 'Pura', 
         'Influencia política, artefactos tenebrosos', 
         'Mortífago declarado, sobornos y chantajes', 
         'img/lucius.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
-VALUES ('Antonin Dolohov', 'vivo', 'pura', 
+VALUES ('Antonin Dolohov', 'Vivo', 'Pura', 
         'Duelos, maldiciones letales', 
         'Condenado por asesinato y tortura de magos y muggles', 
         'img/dolohov.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
-VALUES ('Fenrir Greyback', 'vivo', 'desconocido', 
+VALUES ('Fenrir Greyback', 'Vivo', 'Desconocido', 
         'Licántropo, ataques cuerpo a cuerpo', 
         'Ataques a niños y muggles, colaborador de Voldemort', 
         'img/fenrir_greyback.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
-VALUES ('Barty Crouch Jr.', 'muerto', 'desconocido', 
+VALUES ('Barty Crouch Jr.', 'Muerto', 'Desconocido', 
         'Maldiciones imperdonables, suplantación con multijugos', 
         'Evasión de Azkaban, secuestro de Ojo-Loco Moody', 
         'img/barty_jr.jpg');
 
 INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
-VALUES ('Severus Snape', 'muerto', 'mestiza', 
+VALUES ('Severus Snape', 'Muerto', 'Mestiza', 
         'Pociones, oclumancia y legeremancia', 
         'Doble agente entre la Orden del Fénix y Voldemort', 
         'img/snape.jpg');
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Igor Karkarov', 'Muerto', 'Desconocido',
+        'Artes Oscuras y dirección estratégica',
+        'Ex director de Durmstrang, delató mortífagos tras su captura',
+        'img/karkarov.jpg');
+
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Corban Yaxley', 'Desconocido', 'Pura',
+        'Manipulación política y persecución de muggles',
+        'Participó en la toma del Ministerio',
+        'img/yaxley.jpg');
+
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Selwyn', 'Desconocido', 'Pura',
+        'Apoyo táctico y duelos',
+        'Participó en la captura de Harry Potter',
+        'img/selwyn.jpg');
+
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Gibbon', 'Muerto', 'Desconocido',
+        'Ataques encubiertos',
+        'Murió por fuego amigo durante una incursión',
+        'img/gibbon.jpg');
+
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Avery (Sr.)', 'Desconocido', 'Pura',
+        'Maldiciones imperdonables',
+        'Mortífago activo en la Primera Guerra',
+        'img/avery_sr.jpg');
+
+
+
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Crabbe Sr.', 'Desconocido', 'Pura',
+        'Influencia y apoyo logístico',
+        'Padre de Vincent Crabbe y mortífago declarado',
+        'img/crabbe_sr.jpg');
+
+INSERT INTO MORTIFAGOS (NOMBRE, ESTADO, SANGRE, ESPECIALIDAD, ANTECEDENTES, IMAGEN) 
+VALUES ('Goyle Sr.', 'Desconocido', 'Pura',
+        'Apoyo en misiones de intimidación',
+        'Padre de Gregory Goyle, seguidor fiel',
+        'img/goyle_sr.jpg');
+
+
 
 

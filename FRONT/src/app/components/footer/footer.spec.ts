@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MortifagoCard } from './mortifago-card';
+import { Footer } from './footer';
 
-describe('MortifagoCard', () => {
-  let component: MortifagoCard;
-  let fixture: ComponentFixture<MortifagoCard>;
+describe('Footer', () => {
+  let component: Footer;
+  let fixture: ComponentFixture<Footer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MortifagoCard]
+      imports: [Footer]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MortifagoCard);
+    fixture = TestBed.createComponent(Footer);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

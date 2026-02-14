@@ -1,0 +1,41 @@
+
+.hero-section {
+  min-height: 85vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.content-box {
+  background: rgba(0, 0, 0, 0.85); 
+  color: white; 
+  padding: 3rem;
+  border-radius: 15px;
+  border: 1px solid #444;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+  max-width: 800px;
+  width: 90%;
+}
+
+.azkaban-title {
+  font-family: 'Georgia', serif;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+
+.boton-magico {
+  border: 1px solid white;
+  color: white;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+
+.boton-magico:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 15px white;
+}

@@ -1,0 +1,12 @@
+footer {
+  background-color: var(--fixed-bg) !important;
+  color: #888;
+  border-top: 1px solid var(--fixed-border) !important; 
+  font-family: 'Cinzel', serif;
+  width: 100%;
+}
+
+.footer-text {
+  color: var(--fixed-text);
+  letter-spacing: 1px;
+}
