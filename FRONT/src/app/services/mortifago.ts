@@ -7,7 +7,7 @@ import { Mortifago } from '../models/mortifago.model';
   providedIn: 'root',
 })
 export class MortifagoService {
-  private apiUrl = 'http://localhost:3000/api/mortifagos';
+  private apiUrl = 'https://proyecto-bq5-icb.onrender.com/api/mortifagos';
 
   private http = inject(HttpClient);
 
@@ -27,8 +27,7 @@ export class MortifagoService {
   }
  //Tipos de sangre creo que este no lo usaré
    getTiposSangre(): Observable<string[]>{
-    return this.http.get<string[]>(`${this.apiUrl}/sangre 
-      `);
+    return this.http.get<string[]>(`${this.apiUrl}/sangre`);
   }
 }
 
