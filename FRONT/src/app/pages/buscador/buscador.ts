@@ -18,7 +18,8 @@ export class Buscador implements OnInit {
   mortifagoSeleccionado: Mortifago | null = null;
   cargando: boolean = true;
   busquedaTexto: string = '';
-  filtroEstado: string = ''; 
+  filtroEstado: string = '';
+  baseImgUrl: string = 'https://proyecto-bq5-icb.onrender.com/img/' 
 
   private servicio = inject(MortifagoService);
   private cd = inject(ChangeDetectorRef); 

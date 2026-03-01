@@ -46,10 +46,10 @@
           <div class="card-azkaban">
             
             <div class="card-img-wrapper">
-              <img [src]="'http://localhost:3000/' + m.imagen" 
-                   (error)="imgError($event)" 
-                   class="card-img-top" 
-                   [alt]="m.nombre">
+              <img [src]="baseImgUrl + m.imagen" 
+                (error)="imgError($event)" 
+                class="card-img-top" 
+                [alt]="m.nombre">
             </div>
             
             <div class="card-body">
@@ -103,10 +103,10 @@
           <div class="row">
             <div class="col-md-5 mb-3 mb-md-0 d-flex flex-column align-items-center">
               <div class="mugshot-wrapper">
-                <img [src]="'http://localhost:3000/' + mortifagoSeleccionado.imagen" 
-                     (error)="imgError($event)" 
-                     class="mugshot-img" 
-                     alt="Foto">
+                <img [src]="baseImgUrl + mortifagoSeleccionado.imagen" 
+                  (error)="imgError($event)" 
+                  class="mugshot-img" 
+                  alt="Foto">
                 <div class="mugshot-label">🐍MORTÍFAGO💀</div>
               </div>
             </div>
