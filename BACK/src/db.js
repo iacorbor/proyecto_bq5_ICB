@@ -1,14 +1,18 @@
+const { Pool } = require('pg');
 
-const oracledb = require("oracledb");
-oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+// Se crea un pool de conexiones
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
 async function getConnection() {
-
-  return oracledb.getConnection({
-
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      connectString: process.env.DB_CONNECT_STRING,
-  });
+  // Pedimos una conexión libre al pool
+  const client = await pool.connect();
+  return client;
 }
 
+// Exportamos la función para obtener conexión
 module.exports = { getConnection };

@@ -6,7 +6,7 @@ router.get("/", async (req, res) => {
 
   try {
      conn = await getConnection();
-     const result = await conn.execute(`
+     const result = await conn.query(`
       SELECT
         ID          AS "id",
         NOMBRE      AS "nombre",
@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
 
   } finally {
    
-    if (conn) await conn.close();
+    if (conn) await conn.release();
   }
 });
 
@@ -43,7 +43,7 @@ router.get("/sangre", async (req, res) => {
     conn = await getConnection();
 
 
-    const result = await conn.execute(`
+    const result = await conn.query(`
       SELECT DISTINCT
         SANGRE AS "sangre"
       FROM MORTIFAGOS
@@ -58,7 +58,7 @@ router.get("/sangre", async (req, res) => {
     });
 
   } finally {
-    if (conn) await conn.close();
+    if (conn) await conn.release();
   }
 });
 
@@ -67,15 +67,15 @@ router.get("/buscar/:termino", async (req, res) => {
   try {
     conn = await getConnection();
     const termino = `%${req.params.termino.toLowerCase()}%`; // Los % permiten buscar "atrix" y encontrar "Bellatrix"
-    const result = await conn.execute(`
+    const result = await conn.query(`
       SELECT ID as "id", NOMBRE as "nombre",
       ESTADO as "estado", SANGRE as "sangre", 
       ESPECIALIDAD as "especialidad",
       ANTECEDENTES as "antecedentes",
       IMAGEN as "imagen"
       FROM MORTIFAGOS 
-      WHERE LOWER(NOMBRE) LIKE :termino
-    `, { termino });
+      WHERE LOWER(NOMBRE) LIKE $1
+    `, [termino]);
     res.json(result.rows);
   } catch (e) {
     res.status(500).json({
@@ -85,7 +85,7 @@ router.get("/buscar/:termino", async (req, res) => {
 
   } finally {
 
-    if (conn) await conn.close();
+    if (conn) await conn.release();
   }
 });
 
@@ -96,7 +96,7 @@ router.get("/estado/:estado", async (req, res) => {
   try {
     conn = await getConnection();
    const estado = req.params.estado;
-    const result = await conn.execute(
+    const result = await conn.query(
       `
       SELECT
         ID          AS "id",
@@ -107,10 +107,10 @@ router.get("/estado/:estado", async (req, res) => {
         ANTECEDENTES       AS "antecedentes",
         IMAGEN AS "imagen"
       FROM MORTIFAGOS
-      WHERE ESTADO = :estado
+      WHERE ESTADO = $1
       ORDER BY NOMBRE
       `,
-      { estado } // parámetro bind
+      [estado] // parámetro bind
     );
 
      res.json(result.rows);
@@ -123,7 +123,7 @@ router.get("/estado/:estado", async (req, res) => {
 
   } finally {
 
-    if (conn) await conn.close();
+    if (conn) await conn.release();
   }
 });
 
