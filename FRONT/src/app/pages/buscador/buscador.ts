@@ -19,7 +19,7 @@ export class Buscador implements OnInit {
   cargando: boolean = true;
   busquedaTexto: string = '';
   filtroEstado: string = '';
-  baseImgUrl: string = 'https://proyecto-bq5-icb.onrender.com/img/' 
+  baseImgUrl: string = 'https://proyecto-bq5-icb.onrender.com/' 
 
   private servicio = inject(MortifagoService);
   private cd = inject(ChangeDetectorRef); 
